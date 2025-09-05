@@ -3,6 +3,8 @@ package com.example.dbejercicio
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.FirebaseApp
+import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,6 +21,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // Inicializa Firebase
+        FirebaseApp.initializeApp(this)
 
         databaseHelper = DatabaseHelper(this)
         editTextProducto = findViewById(R.id.editTextProducto)
@@ -37,6 +42,45 @@ class MainActivity : AppCompatActivity() {
         listarProductos()
     }
 
+    // Guardar en Firestore
+    private fun guardarProductoEnFirestore(nombre: String, cantidad: Int, precio: Double) {
+        val db = FirebaseFirestore.getInstance()
+        val producto = hashMapOf(
+            "nombre" to nombre,
+            "cantidad" to cantidad,
+            "precio" to precio
+        )
+        db.collection("productos")
+            .add(producto)
+    }
+
+    // Actualizar en Firestore
+    private fun actualizarProductoEnFirestore(nombre: String, cantidad: Int, precio: Double) {
+        val db = FirebaseFirestore.getInstance()
+        db.collection("productos")
+            .whereEqualTo("nombre", nombre)
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    db.collection("productos").document(document.id)
+                        .update("cantidad", cantidad, "precio", precio)
+                }
+            }
+    }
+
+    // Eliminar en Firestore
+    private fun eliminarProductoEnFirestore(nombre: String) {
+        val db = FirebaseFirestore.getInstance()
+        db.collection("productos")
+            .whereEqualTo("nombre", nombre)
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    db.collection("productos").document(document.id).delete()
+                }
+            }
+    }
+
     private fun agregarProducto() {
         val nombre = editTextProducto.text.toString().trim()
         val cantidad = editTextCantidad.text.toString().trim().toIntOrNull() ?: 0
@@ -49,6 +93,7 @@ class MainActivity : AppCompatActivity() {
             val id = databaseHelper.agregarProducto(nombre, cantidad, precio)
             runOnUiThread {
                 if (id > -1) {
+                    guardarProductoEnFirestore(nombre, cantidad, precio)
                     editTextProducto.text.clear()
                     editTextCantidad.text.clear()
                     editTextPrecio.text.clear()
@@ -79,6 +124,7 @@ class MainActivity : AppCompatActivity() {
             val filas = databaseHelper.actualizarProducto(id, nombre, cantidad, precio)
             runOnUiThread {
                 if (filas > 0) {
+                    actualizarProductoEnFirestore(nombre, cantidad, precio)
                     editTextProducto.text.clear()
                     editTextCantidad.text.clear()
                     editTextPrecio.text.clear()
@@ -99,9 +145,20 @@ class MainActivity : AppCompatActivity() {
             return
         }
         Thread {
+            // Obtener nombre antes de eliminar
+            var nombre: String? = null
+            val db = databaseHelper.readableDatabase
+            val cursor = db.rawQuery("SELECT nombre FROM productos WHERE id = ?", arrayOf(id.toString()))
+            if (cursor.moveToFirst()) {
+                nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre"))
+            }
+            cursor.close()
+            db.close()
+
             val filas = databaseHelper.eliminarProducto(id)
             runOnUiThread {
-                if (filas > 0) {
+                if (filas > 0 && nombre != null) {
+                    eliminarProductoEnFirestore(nombre)
                     editTextProducto.text.clear()
                     editTextCantidad.text.clear()
                     editTextPrecio.text.clear()
