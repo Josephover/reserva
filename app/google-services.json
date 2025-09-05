@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "335402568317",
+    "project_id": "reserva-e4e37",
+    "storage_bucket": "reserva-e4e37.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:335402568317:android:fa559c8ba75cd374c6ff14",
+        "android_client_info": {
+          "package_name": "com.example.dbejercicio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzcgI41sx6Vi8-_lq_OYyrz3QS5t5zcb8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
