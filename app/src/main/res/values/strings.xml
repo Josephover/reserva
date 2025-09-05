@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">dbEjercicio</string>
+    <string name="titulo_amigos">Mis 5 Amigos Cercanos</string>
+    <string name="agregar">Agregar</string>
+    <string name="actualizar">Actualizar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="historial_reservas">Historial de Reservas</string>
+    <string name="eliminar_reserva">Eliminar Reserva</string>
+    <string name="ir_a_pagar">Ir a pagar</string>
+    <string name="iniciar_sesion">Iniciar Sesión</string>
+    <string name="nombre_usuario">Nombre de usuario</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="agregar_producto_reservar">Agregar producto para reservar</string>
+    <string name="nombre_producto">Nombre del producto</string>
+    <string name="cantidad">Cantidad</string>
+    <string name="precio">Precio</string>
+    <string name="agregar_producto">Agregar Producto</string>
+    <string name="actualizar_producto">Actualizar Producto</string>
+
+
+    <string name="ver_historial">Ver historial</string>
+    <string name="reservar_producto">Reservar producto</string>
+    <string name="reservar_producto_boton">Reservar Producto</string>
+
+    <string name="pantalla_pagar_titulo">Pagar</string>
+    <string name="productos">Productos</string>
+    <string name="total">Total:</string>
+    <string name="metodo_pago">Método de pago</string>
+    <string name="pagar">Pagar</string>
+
+    <string name="efectivo">Efectivo</string>
+    <string name="tarjeta">Tarjeta</string>
+    <string name="numero_tarjeta">Número de tarjeta</string>
+    <string name="nombre_tarjeta">Nombre en la tarjeta</string>
+    <string name="completa_datos_tarjeta">Completa los datos de la tarjeta</string>
+</resources>

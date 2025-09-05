@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="@color/fondo_app">
+
+    <ImageButton
+        android:id="@+id/btnHistorial"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/ver_historial"
+        android:src="@android:drawable/ic_menu_recent_history" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:text="@string/reservar_producto"
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/listViewProductosUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="526dp"
+        android:layout_marginBottom="16dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/btnReservar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/reservar_producto_boton"
+        android:background="@drawable/boton_moderno"
+        android:textColor="@color/boton_texto"/>
+</LinearLayout>

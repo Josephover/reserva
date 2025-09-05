@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:gravity="center"
+    android:background="@color/fondo_app">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/iniciar_sesion"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"/>
+    <ImageView
+        android:id="@+id/imageLogin"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/icon_login"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp"/>
+    <EditText
+        android:id="@+id/editTextNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/nombre_usuario"
+        android:layout_marginBottom="12dp"/>
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/contrasena"
+        android:inputType="textPassword"
+        android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ingresar"
+        android:background="@drawable/boton_moderno"
+        android:textColor="@color/boton_texto"/>
+</LinearLayout>

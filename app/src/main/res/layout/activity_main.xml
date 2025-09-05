@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="@color/fondo_app">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/agregar_producto_reservar"
+        android:textStyle="bold"
+        android:layout_marginTop="24dp"
+        android:textSize="20sp"
+        android:gravity="center"/>
+
+    <EditText
+        android:id="@+id/editTextProducto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/nombre_producto"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/editTextCantidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/cantidad"
+        android:inputType="number"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/editTextPrecio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/precio"
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btnAgregarProducto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/agregar_producto"
+        android:background="@drawable/boton_moderno"
+        android:textColor="@color/boton_texto"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnActualizarProducto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/actualizar_producto"
+        android:background="@drawable/boton_moderno"
+        android:textColor="@color/boton_texto"
+        android:layout_marginBottom="8dp"/>
+    <Button
+        android:id="@+id/btnEliminar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/boton_moderno"
+        android:text="@string/eliminar"
+        android:textColor="@color/boton_texto" />
+
+    <ListView
+        android:id="@+id/ListViewTarea"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp"/>
+</LinearLayout>
