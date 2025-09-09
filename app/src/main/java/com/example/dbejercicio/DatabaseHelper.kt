@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
-
     companion object {
         private const val DATABASE_NAME = "dbEjercicio.db"
         private const val DATABASE_VERSION = 3
@@ -17,7 +16,6 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         private const val COLUMN_CANTIDAD = "cantidad"
         private const val COLUMN_PRECIO = "precio"
     }
-
     override fun onCreate(db: SQLiteDatabase) {
         val createTableProductos = ("CREATE TABLE $TABLE_PRODUCTOS ("
                 + "$COLUMN_PRODUCTO_ID INTEGER PRIMARY KEY AUTOINCREMENT, "
